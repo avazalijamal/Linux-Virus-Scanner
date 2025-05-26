@@ -68,3 +68,21 @@ auditd istifadə edərək əmrlərin izlənməsi.
 inotify ilə .bashrc, .ssh, .profile fayllarına dəyişiklik nəzarəti.
 
 Əgər bu hissəni sənə ZIP şəklində, README ilə birlikdə verim istəyirsənsə, onu da hazırlayım. Davam edim?
+
+
+
+# ☑️ İstifadə Qaydası:
+Faylı yaradın:
+
+nano hewwart_autoclean.sh
+Yuxarıdakı kodu yapışdırın.
+
+Yadda saxla və çıx (CTRL + O, sonra CTRL + X).
+
+Fayla icazə ver:
+
+chmod +x hewwart_autoclean.sh
+İcra et:
+
+./hewwart_autoclean.sh
+İstəsən bu skripti systemd və ya cron vasitəsilə gündəlik olaraq avtomatik işə salmaq üçün də konfiqurasiya edə bilərəm. Deyin, onu da edək?

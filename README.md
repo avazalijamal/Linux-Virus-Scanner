@@ -1,67 +1,51 @@
-# Linux-Virus-Scanner
+# 🛡️ HEWWART LINUX SECURITY SCAN
 
-Aşağıda Ubuntu sisteminizdə şübhəli prosesləri aşkarlayan, zərərli ELF faylları tapan, və avtomatik təmizləyən sadə bir təhlükəsizlik bash skripti verilir.
+Bu repo, Ubuntu sistemində şübhəli fəaliyyətləri və virusları aşkarlamaq üçün iki təhlükəsizlik skriptindən ibarətdir:
 
-🔧 İstifadə Qaydası:
-Skripti fayla yaz:
+---
 
-nano secure-scan.sh
-İçinə yuxarıdakı kodu yapışdır.
+## 🔧 1. `secure-scan.sh` — Sadə və sürətli scan
 
-İcra edilə bilən et:
+### ✔️ Nə edir:
+- Gizli `.config`, `.local` kimi qovluqlarda zərərli ELF faylları tapır
+- `.bashrc` və `.profile` fayllarında zərərli kodu axtarır
+- ClamAV antivirusu ilə `$HOME` qovluğunu yoxlayır
 
+### ▶️ İstifadə:
+```bash
 chmod +x secure-scan.sh
-Skripti işə sal:
-
 ./secure-scan.sh
+```
 
+---
 
-📌 Skript nə edir?
-Gizli qovluqlarda zərərli ELF faylları tapır
+## 🔍 2. `deep-secure-scan.sh` — Dərin sistem yoxlaması
 
-UPX ilə sıxılmış, section header olmayan faylları aşkarlayır
+### ✔️ Nə edir:
+- `systemd` xidmətlərində şübhəli prosesləri tapır
+- Sistem və istifadəçi `cron` tapşırıqlarını yoxlayır
+- Gizli ELF faylları tapır və şəbəkə əlaqələrini izləyir
+- ClamAV ilə sistem antivirus scan aparır
 
-.bashrc və .profile fayllarını təmizləyir
-
-ClamAV antivirusu ilə tam scan aparır
-
-İstəyirsənsə, əlavə olaraq sistemd xidmətlərini və ya cron tapşırıqlarını da yoxlayan versiyasını hazırlaya bilərəm. Yaz: cron və systemd versiyasını da ver.
-
-# Əla, indi sənə cron və systemd vasitəsilə sistemdə zərərli kodların, backdoor-ların və avtomatik işləməyə qurulmuş zərərli skriptlərin axtarışını həyata keçirən təkmilləşdirilmiş skript təqdim edirəm.
-
-📂 Skripti İstifadə Etmək üçün:
-Faylı yarat:
-
-nano deep-secure-scan.sh
-İçinə skripti yapışdır.
-
-İcra icazəsi ver:
-
+### ▶️ İstifadə:
+```bash
 chmod +x deep-secure-scan.sh
-İşə sal:
-
 ./deep-secure-scan.sh
-⏰ AVTOMAT İCRA (CRON İLƏ HƏFTƏLİK):
-Skriptin tam yolunu tap:
+```
 
-realpath deep-secure-scan.sh
-Məsələn: /home/geo-infosystem-app/deep-secure-scan.sh
-
-Cron-a əlavə et:
-
+### ⏰ Avtomatlaşdırmaq üçün (cron):
+```bash
 crontab -e
+```
+
 Əlavə et:
+```bash
+0 3 * * 0 /tam/yol/deep-secure-scan.sh >> /tam/yol/cron-scan.log 2>&1
+```
 
-0 3 * * 0 /home/geo-infosystem-app/deep-secure-scan.sh >> /home/geo-infosystem-app/cron-scan.log 2>&1
-Bu, hər bazar günü saat 03:00-da skanı icra edəcək.
+---
 
-🧠 Qısaca Nə Edir?
-Modul	Açıqlama
-systemctl	Gizli və adından şübhəli xidmətləri yoxlayır
-cron	Cron tapşırıqlarında zərərli skriptlər axtarır
-ELF scan	Gizli yerlərdə potensial virus faylları axtarır
-bashrc/profile	Quraşdırılmış backdoor izlərini tapır
-lsof	İnternetə çıxan prosesi göstərir (mümkün C2 bağlantısı)
-clamav	Fayl sistemini viruslara qarşı skan edir
-
-Əgər istəsən, bu skripti .deb paketə və ya .service faylı şəklində daimi işləyən agent halına da gətirə bilərik. Yaz: agent kimi sistemə əlavə et.
+## 📦 Fayllar:
+- `secure-scan.sh`
+- `deep-secure-scan.sh`
+- `README.md`

@@ -49,3 +49,22 @@ crontab -e
 - `secure-scan.sh`
 - `deep-secure-scan.sh`
 - `README.md`
+
+
+# 📌 backdoor-scan.sh Quraşdırma və istifadə
+Bu hissəni əsas skriptində məsələn, ClamAV yoxlamasından sonra və ya əvvəl əlavə edə bilərsən.
+
+### ▶️ İstifadə:
+```bash
+chmod +x backdoor-scan.sh
+./backdoor-scan.sh
+```
+
+İstəyə bağlı genişləndirmələr:
+Rootkit yoxlaması üçün chkrootkit və ya rkhunter inteqrasiyası.
+
+auditd istifadə edərək əmrlərin izlənməsi.
+
+inotify ilə .bashrc, .ssh, .profile fayllarına dəyişiklik nəzarəti.
+
+Əgər bu hissəni sənə ZIP şəklində, README ilə birlikdə verim istəyirsənsə, onu da hazırlayım. Davam edim?

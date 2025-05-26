@@ -37,8 +37,9 @@ grep -E "ooWOWWJF|\.config|kworker|/dev/shm" ~/.bashrc ~/.profile 2>/dev/null
 if ! command -v clamscan &> /dev/null; then
   echo "🛠️ ClamAV yüklənir..."
   sudo apt update && sudo apt install clamav -y
-  sudo freshclam
 fi
+
+sudo freshclam
 
 echo "🧪 ClamAV ilə sistem skanı başlanır..."
 sudo clamscan -r $HOME > clamav_scan_report.txt

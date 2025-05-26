@@ -36,8 +36,10 @@ sudo lsof -i -nP | grep ESTABLISHED | tee -a "$LOG"
 if ! command -v clamscan &> /dev/null; then
   echo "🛠️ ClamAV quraşdırılır..." | tee -a "$LOG"
   sudo apt update && sudo apt install clamav -y
-  sudo freshclam
-fi
+fi 
+
+sudo freshclam
+
 echo -e "\n🧪 ClamAV ilə virus skanı (Home qovluğu)..." | tee -a "$LOG"
 sudo clamscan -r $HOME | tee -a "$LOG"
 

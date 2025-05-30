@@ -41,7 +41,7 @@ sudo freshclam
 
 # 6. ClamAV ilə $HOME skanı
 echo "🔍 ClamAV ilə ev qovluğu skan olunur..."
-sudo clamscan -r $HOME > $HOME/clamav_autoscan_report.txt
-echo "📄 Skan hesabatı saxlanıldı: $HOME/clamav_autoscan_report.txt"
+sudo clamscan -r $HOME > clamav_autoscan_report.txt
+echo "📄 Skan hesabatı saxlanıldı: clamav_autoscan_report.txt"
 
 echo "✅ HEWWART TƏMİZLƏMƏ ƏMƏLİYYATI BİTDİ."
